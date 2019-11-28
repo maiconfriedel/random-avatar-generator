@@ -9,6 +9,10 @@
     "build": "tsc",
     "prepublish": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maikeaerosmith/random-avatar-generator"
+  },
   "keywords": [
     "avatar",
     "random",
