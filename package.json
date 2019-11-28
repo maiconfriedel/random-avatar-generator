@@ -1,0 +1,17 @@
+{
+  "name": "random-avatar-generator",
+  "description": "A library to generate random avatars images URL using https://getavataaars.com",
+  "version": "1.0.5",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc"
+  },
+  "keywords": [
+    "avatar",
+    "random",
+    "generator"
+  ]
+}
