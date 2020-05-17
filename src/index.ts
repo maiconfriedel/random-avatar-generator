@@ -1,3 +1,5 @@
+import seedrandom from 'seedrandom';
+
 /** @description Class to generate avatars  */
 export class AvatarGenerator {
   constructor() {}
@@ -5,7 +7,7 @@ export class AvatarGenerator {
   /** @description Generates random avatar image URL
    * @returns Random avatar image URL
    */
-  generateRandomAvatar() {
+  generateRandomAvatar(seed?: string) {
     let topTypeOptions = new Array<string>();
     topTypeOptions.push(
       "NoHair",
@@ -202,36 +204,39 @@ export class AvatarGenerator {
       "White"
     );
 
+    const rng = seed ? seedrandom(seed) : seedrandom();
+
     return `https://avataaars.io/?accessoriesType=${
       accessoriesTypeOptions[
-        Math.floor(Math.random() * accessoriesTypeOptions.length)
+        Math.floor(rng() * accessoriesTypeOptions.length)
       ]
     }&avatarStyle=Circle&clotheColor=${
-      clotheColorOptions[Math.floor(Math.random() * clotheColorOptions.length)]
+      clotheColorOptions[Math.floor(rng() * clotheColorOptions.length)]
     }&clotheType=${
-      clotheTypeOptions[Math.floor(Math.random() * clotheTypeOptions.length)]
+      clotheTypeOptions[Math.floor(rng() * clotheTypeOptions.length)]
     }&eyeType=${
-      eyeTypeOptions[Math.floor(Math.random() * eyeTypeOptions.length)]
+      eyeTypeOptions[Math.floor(rng() * eyeTypeOptions.length)]
     }&eyebrowType=${
-      eyebrowTypeOptions[Math.floor(Math.random() * eyebrowTypeOptions.length)]
+      eyebrowTypeOptions[Math.floor(rng() * eyebrowTypeOptions.length)]
     }&facialHairColor=${
       facialHairColorOptions[
-        Math.floor(Math.random() * facialHairColorOptions.length)
+        Math.floor(rng() * facialHairColorOptions.length)
       ]
     }&facialHairType=${
       facialHairTypeOptions[
-        Math.floor(Math.random() * facialHairTypeOptions.length)
+        Math.floor(rng() * facialHairTypeOptions.length)
       ]
     }&hairColor=${
-      hairColorTypes[Math.floor(Math.random() * hairColorTypes.length)]
+      hairColorTypes[Math.floor(rng() * hairColorTypes.length)]
     }&hatColor=${
-      hatColorOptions[Math.floor(Math.random() * hatColorOptions.length)]
+      hatColorOptions[Math.floor(rng() * hatColorOptions.length)]
     }&mouthType=${
-      mouthTypeOptions[Math.floor(Math.random() * mouthTypeOptions.length)]
+      mouthTypeOptions[Math.floor(rng() * mouthTypeOptions.length)]
     }&skinColor=${
-      skinColorOptions[Math.floor(Math.random() * skinColorOptions.length)]
+      skinColorOptions[Math.floor(rng() * skinColorOptions.length)]
     }&topType=${
-      topTypeOptions[Math.floor(Math.random() * topTypeOptions.length)]
+      topTypeOptions[Math.floor(rng() * topTypeOptions.length)]
     }`;
   }
 }
+
