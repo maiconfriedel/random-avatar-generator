@@ -1,7 +1,7 @@
 {
   "name": "random-avatar-generator",
   "description": "A library to generate random avatars images URL using https://getavataaars.com",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -19,7 +19,9 @@
     "generator"
   ],
   "dependencies": {
-    "@types/seedrandom": "^2.4.28",
     "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/seedrandom": "^2.4.28"
   }
 }

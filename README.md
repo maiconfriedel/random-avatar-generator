@@ -5,7 +5,7 @@
 ## Usage
 
 ```typescript
-import { AvatarGenerator } from 'seedable-random-avatar-generator';
+import { AvatarGenerator } from 'random-avatar-generator';
 
 const generator = new AvatarGenerator();
 
