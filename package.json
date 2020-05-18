@@ -17,5 +17,9 @@
     "avatar",
     "random",
     "generator"
-  ]
+  ],
+  "dependencies": {
+    "@types/seedrandom": "^2.4.28",
+    "seedrandom": "^3.0.5"
+  }
 }
