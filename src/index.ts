@@ -1,13 +1,30 @@
-import seedrandom from 'seedrandom';
+import seedrandom from "seedrandom";
 
 /** @description Class to generate avatars  */
 export class AvatarGenerator {
   constructor() {}
-
   /** @description Generates random avatar image URL
    * @returns Random avatar image URL
    */
   generateRandomAvatar(seed?: string) {
+    let options = this.generateRandomOptions(seed);
+    let url: string = "https://avataaars.io/?accessoriesType=";
+    Object.keys(options).forEach((key, index, optionsList) => {
+      if (index === 0) url += key + "=" + optionsList[index];
+      else url += "&" + key + "=" + optionsList[index];
+    });
+    return url;
+  }
+  /** @description Generates random avatar options using provided seed
+   * @returns avatar options with the following format
+   * {
+   * accessoriesType: string, clotheColor: string,clotheType: string;
+      eyeType: string, eyebrowType: string, acialHairColor: string;
+      facialHairType: string, hairColor: string, hatColor: string;
+      mouthType: string, skinColor: string, topType: string;
+    }
+   */
+  generateRandomOptions(seed?: string) {
     let topTypeOptions = new Array<string>();
     topTypeOptions.push(
       "NoHair",
@@ -206,37 +223,45 @@ export class AvatarGenerator {
 
     const rng = seed ? seedrandom(seed) : seedrandom();
 
-    return `https://avataaars.io/?accessoriesType=${
-      accessoriesTypeOptions[
-        Math.floor(rng() * accessoriesTypeOptions.length)
-      ]
-    }&avatarStyle=Circle&clotheColor=${
-      clotheColorOptions[Math.floor(rng() * clotheColorOptions.length)]
-    }&clotheType=${
-      clotheTypeOptions[Math.floor(rng() * clotheTypeOptions.length)]
-    }&eyeType=${
-      eyeTypeOptions[Math.floor(rng() * eyeTypeOptions.length)]
-    }&eyebrowType=${
-      eyebrowTypeOptions[Math.floor(rng() * eyebrowTypeOptions.length)]
-    }&facialHairColor=${
-      facialHairColorOptions[
-        Math.floor(rng() * facialHairColorOptions.length)
-      ]
-    }&facialHairType=${
-      facialHairTypeOptions[
-        Math.floor(rng() * facialHairTypeOptions.length)
-      ]
-    }&hairColor=${
-      hairColorTypes[Math.floor(rng() * hairColorTypes.length)]
-    }&hatColor=${
-      hatColorOptions[Math.floor(rng() * hatColorOptions.length)]
-    }&mouthType=${
-      mouthTypeOptions[Math.floor(rng() * mouthTypeOptions.length)]
-    }&skinColor=${
-      skinColorOptions[Math.floor(rng() * skinColorOptions.length)]
-    }&topType=${
-      topTypeOptions[Math.floor(rng() * topTypeOptions.length)]
-    }`;
+    let options: {
+      accessoriesType: string;
+      clotheColor: string;
+      clotheType: string;
+      eyeType: string;
+      eyebrowType: string;
+      facialHairColor: string;
+      facialHairType: string;
+      hairColor: string;
+      hatColor: string;
+      mouthType: string;
+      skinColor: string;
+      topType: string;
+    } = {
+      accessoriesType:
+        accessoriesTypeOptions[
+          Math.floor(rng() * accessoriesTypeOptions.length)
+        ],
+      clotheColor:
+        accessoriesTypeOptions[
+          Math.floor(rng() * accessoriesTypeOptions.length)
+        ],
+      clotheType:
+        clotheTypeOptions[Math.floor(rng() * clotheTypeOptions.length)],
+      eyeType: eyeTypeOptions[Math.floor(rng() * eyeTypeOptions.length)],
+      eyebrowType:
+        eyebrowTypeOptions[Math.floor(rng() * eyebrowTypeOptions.length)],
+      facialHairColor:
+        facialHairColorOptions[
+          Math.floor(rng() * facialHairColorOptions.length)
+        ],
+      facialHairType:
+        facialHairTypeOptions[Math.floor(rng() * facialHairTypeOptions.length)],
+      hairColor: hairColorTypes[Math.floor(rng() * hairColorTypes.length)],
+      hatColor: hatColorOptions[Math.floor(rng() * hatColorOptions.length)],
+      mouthType: mouthTypeOptions[Math.floor(rng() * mouthTypeOptions.length)],
+      skinColor: skinColorOptions[Math.floor(rng() * skinColorOptions.length)],
+      topType: topTypeOptions[Math.floor(rng() * topTypeOptions.length)],
+    };
+    return options;
   }
 }
-
