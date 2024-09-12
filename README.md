@@ -17,3 +17,9 @@ generator.generateRandomAvatar();
 generator.generateRandomAvatar('avatar'); 
 
 ```
+
+# React
+
+If you using React, please check the React Version below, which is more optimized using React components
+
+[React Random Avatar](https://github.com/maiconfriedel/react-random-avatar)
